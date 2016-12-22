@@ -30,6 +30,7 @@ class Main
 	}
 
 	protected function load($driver='mysql', $config=false){
+		if(empty($driver)) $driver='sqlite';
 		$class = __NAMESPACE__."\\driver\\"."Dr".strtoupper($driver);
 		$this->drivers[$driver] = new $class($config);
         return $this->drivers[$driver];

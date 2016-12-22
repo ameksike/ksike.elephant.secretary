@@ -40,6 +40,13 @@ abstract class DbDriver
 		return (strtolower(substr(trim($sql), 0, 6)) == 'select');
 	}
 
+	protected function dsn(){
+		return "";
+	}
+	protected function inf(){
+		return "";
+	}
+
 	abstract public function query($sql);
 	abstract public function connect();
 	abstract public function disconnect();

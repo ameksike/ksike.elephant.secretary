@@ -1,0 +1,20 @@
+{
+  "author": {
+    "name": "Antonio Membrides Espinosa"
+  },
+  "dev_dependencies": {
+	"php": "^5.3.27",
+    "libphp5-sqlite": "^5.3.27"
+	"libphp5-mysql": "^5.3.27",
+	"libphp5-mysqli": "^5.3.27",
+	"libphp5-pgsql": "^5.3.27"
+  },
+  "description": "Light data access layer, provides simplified access to data stored in persistent storage.",
+  "main": "src/Main.js",
+  "license": "GPL",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ameksike/secretary-elephant.git"
+  },
+}
