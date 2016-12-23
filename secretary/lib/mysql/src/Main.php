@@ -2,15 +2,16 @@
 /* 
  *
  * @author: Antonio Membrides Espinosa
- * @mail: amembrides@uci.cu
- * @made: 23/4/2011 
- * @update: 23/4/2011 
+ * @mail: ameksike@gmail.com
+ * @created: 23/04/2011 
+ * @updated: 23/04/2011 
  * @description: This is simple and Light Driver for MySql DBSM 
- * @require: PHP >= 5.2.*, libphp5-mysql 
+ * @require: PHP >= 5.3.*, libphp5-mysql 
  * 
  */
-namespace Secretary\src\server\driver;
-class DrMYSQL extends DbDriver
+namespace Ksike\secretary\lib\mysql\src;
+use Ksike\secretary\src\server\Driver as Driver;
+class Main extends Driver
 {
 	public $user;   
 	public $pass;    
@@ -40,12 +41,13 @@ class DrMYSQL extends DbDriver
 	}
 
 	public function connect(){
+		$this->pass = $this->password ? $this->password : $this->pass;
 		if(!$this->connection = @mysql_connect($this->host, $this->user, $this->pass)){
-			$this->log("ERROR: No se pudo establecer la coneccion con el servidor con el: driver:mysql, host={$this->host}, user={$this->user}, password={$this->pass}"); 
+			$this->log("ERROR: Could not connect to server with DSN: driver:mysql, host={$this->host}, user={$this->user}, password={$this->pass}"); 
 			return false;
 		}
 		if(!@mysql_select_db($this->name, $this->connection)) 	{
-			$this->log("ERROR: No se pudo establecer la coneccion con la BD denominada {$this->name}"); 
+			$this->log("ERROR: Could not establish connection with DB named '{$this->name}'"); 
 			return false;
 		}		
 		return true;
@@ -53,8 +55,8 @@ class DrMYSQL extends DbDriver
 
 	public function disconnect(){
 		if(!@mysql_close($this->connection)){
-			//... throw new \Exception("ERROR: No se pudo cerrar la coneccion");
-			$this->log('ERROR: No se pudo cerrar la coneccion');  
+			//... throw new \Exception("ERROR: Could not close connection");
+			$this->log('ERROR: Could not close connection');  
 			return false;
 		}
 		return true;

@@ -1,7 +1,7 @@
 <?php
 /*
  *
- * @framework: Bycod
+ * @framework: Ksike
  * @package: Secretary
  * @version: 0.1
  * @description: This is simple and light lib for manage DBSM
@@ -13,15 +13,15 @@
  * @require: PHP >= 5.2.*, Loader <= 0.1
  *
  */
-namespace Secretary\src\server;
+namespace Ksike\secretary\src\server;
 class Main
 {
 	protected $drivers;
 	protected $active;
 
-	public function __construct($driver='mysql'){
+	public function __construct($opt=false){
 		$this->drivers = array();
-		$this->setting($driver);
+		$this->setting($opt);
 	}
 
 	protected function driver($driver=false, $config=false){
@@ -31,7 +31,7 @@ class Main
 
 	protected function load($driver='mysql', $config=false){
 		if(empty($driver)) $driver='sqlite';
-		$class = __NAMESPACE__."\\driver\\"."Dr".strtoupper($driver);
+		$class = "Ksike\\secretary\\lib\\".strtolower($driver)."\\src\\Main";
 		$this->drivers[$driver] = new $class($config);
         return $this->drivers[$driver];
 	}

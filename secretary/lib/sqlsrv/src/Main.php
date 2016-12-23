@@ -2,15 +2,16 @@
 /*
  *
  * @author: Antonio Membrides Espinosa
- * @mail: amembrides@uci.cu
- * @made: 20/10/2016
- * @update: 23/4/2016
+ * @mail: ameksike@gmail.com
+ * @created: 20/10/2016
+ * @updated: 23/04/2016
  * @description: This is simple and Light Driver for MSSQL Server DBSM
  * @require: PHP >= 5.5.15, libphp5-sqlsrv
  *
  */
-namespace Secretary\src\server\driver;
-class DrSQLSRV extends DbDriver
+namespace Ksike\secretary\lib\sqlsrv\src;
+use Ksike\secretary\src\server\Driver as Driver;
+class Main extends Driver
 {
     public $user;
     public $pass;
@@ -82,9 +83,10 @@ class DrSQLSRV extends DbDriver
         $cfg = array(
             "Database"=>$this->name
         );
+		$this->pass = $this->password ? $this->password : $this->pass;
         if($this->auth == "sqlserver"){
             $cfg["UID"] = $this->user;
-            $cfg["PWD"] = $this->user;
+            $cfg["PWD"] = $this->pass;
         }
         return $cfg;
     }

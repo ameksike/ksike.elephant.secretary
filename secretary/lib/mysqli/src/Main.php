@@ -2,15 +2,16 @@
 /* 
  *
  * @author: Antonio Membrides Espinosa
- * @mail: amembrides@uci.cu
- * @made: 23/4/2011 
- * @update: 23/4/2011 
+ * @mail: ameksike@gmail.com
+ * @created: 23/04/2011 
+ * @updated: 23/04/2011 
  * @description: This is simple and Light Driver for MySql DBSM 
- * @require: PHP >= 5.2.*, libphp5-mysqli
+ * @require: PHP >= 5.3.*, libphp5-mysqli
  * 
  */
-namespace Secretary\src\server\driver;
-class DrMYSQLI extends DbDriver
+namespace Ksike\secretary\lib\mysqli\src;
+use Ksike\secretary\src\server\Driver as Driver;
+class Main extends Driver
 {
 	public $user;   
 	public $pass;    

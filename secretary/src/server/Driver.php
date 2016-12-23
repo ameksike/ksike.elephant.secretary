@@ -9,8 +9,8 @@
  * @require: PHP >= 5.2.*, libphp5-mysql 
  * 
  */
-namespace Secretary\src\server\driver;
-abstract class DbDriver
+namespace Ksike\secretary\src\server;
+abstract class Driver
 {
 	public $name;
 	public $log;

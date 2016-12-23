@@ -2,15 +2,16 @@
 /* 
  *
  * @author: Antonio Membrides Espinosa
- * @mail: amembrides@uci.cu
- * @made: 23/4/2011 
- * @update: 23/4/2011 
+ * @mail: ameksike@gmail.com
+ * @created: 23/04/2011 
+ * @updated: 23/04/2011 
  * @description: This is simple and Light Driver for PostgresSQL DBSM 
- * @require: PHP >= 5.2.*, libphp5-pgsql 
+ * @require: PHP >= 5.3.*, libphp5-pgsql 
  * 
  */
-namespace Secretary\src\server\driver;
-class DrPGSQL extends DbDriver
+namespace Ksike\secretary\lib\pgsql\src;
+use Ksike\secretary\src\server\Driver as Driver;
+class Main extends Driver
 {
 	public $user;   
 	public $pass;    
@@ -64,6 +65,7 @@ class DrPGSQL extends DbDriver
 
 	public function dsn()
 	{
+		$this->pass = $this->password ? $this->password : $this->pass;
 		return "host={$this->host} port={$this->port} dbname={$this->name} user={$this->user} password={$this->pass}";
 	}
 }
