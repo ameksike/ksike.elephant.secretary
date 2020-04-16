@@ -63,8 +63,7 @@ $out = Secretary::this()->query('SELECT * FROM user');
 ```php
 Secretary::this()->query(sprintf(
 	'INSERT INTO "user" ("name", "age", id) VALUES ("%s", %d, %d);',
-	33,
-	1
+	"Janny", 33, 1
 ));
 ```
 
